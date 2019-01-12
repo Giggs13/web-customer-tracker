@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>List of Customers</title>
 </head>
 <body>
-
+<h1>List of Customers is coming soon...</h1>
 </body>
 </html>
