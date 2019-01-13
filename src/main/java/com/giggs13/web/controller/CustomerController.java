@@ -1,6 +1,6 @@
 package com.giggs13.web.controller;
 
-import com.giggs13.web.dao.CustomerDAO;
+import com.giggs13.web.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private CustomerDAO customerDAO;
+    private CustomerService customerService;
 
-    public CustomerController(@Autowired CustomerDAO customerDAO) {
-        this.customerDAO = customerDAO;
+    public CustomerController(@Autowired CustomerService customerService) {
+        this.customerService = customerService;
     }
 
     @GetMapping
     public String getList(Model model) {
-        model.addAttribute("customers", customerDAO.getCustomers());
+        model.addAttribute("customers", customerService.getCustomers());
 
         return "list-customers";
     }
