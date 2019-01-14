@@ -15,6 +15,14 @@
             </div>
         </div>
     </div>
+    <div class="row mb-2">
+        <div class="col-sm">
+            <a role="button"
+               class="btn btn-primary"
+               href="${pageContext.request.contextPath}/customers/form">Add Customer
+            </a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm">
             <table class="table table-hover text-left">
