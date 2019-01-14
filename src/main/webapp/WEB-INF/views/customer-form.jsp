@@ -24,6 +24,7 @@
     <form:form action="${pageContext.request.contextPath}/customers"
                modelAttribute="customer"
                method="post">
+        <form:hidden path="id"/>
         <div class="form-group">
             <label for="firstName">First Name</label>
             <form:input type="text"

@@ -31,14 +31,25 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="customer" items="${customers}">
+                    <c:url var="updateLink"
+                           value="/customers/form">
+                        <c:param name="id" value="${customer.id}"/>
+                    </c:url>
                     <tr class="table-secondary">
-                        <td>${customer.firstName}</td>
-                        <td>${customer.lastName}</td>
-                        <td>${customer.email}</td>
+                        <td class="align-middle">${customer.firstName}</td>
+                        <td class="align-middle">${customer.lastName}</td>
+                        <td class="align-middle">${customer.email}</td>
+                        <td>
+                            <a role="button"
+                               class="btn btn-light"
+                               href="${updateLink}">Update
+                            </a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

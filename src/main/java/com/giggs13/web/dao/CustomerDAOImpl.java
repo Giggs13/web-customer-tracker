@@ -28,8 +28,15 @@ public class CustomerDAOImpl
     }
 
     @Override
+    public Customer getCustomer(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.get(Customer.class, id);
+    }
+
+    @Override
     public void save(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(customer);
+        session.saveOrUpdate(customer);
     }
 }

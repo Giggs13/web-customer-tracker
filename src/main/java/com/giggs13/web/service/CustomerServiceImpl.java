@@ -25,6 +25,12 @@ public class CustomerServiceImpl
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Customer getCustomer(Integer id) {
+        return customerDAO.getCustomer(id);
+    }
+
+    @Override
     @Transactional
     public void save(Customer customer) {
         customerDAO.save(customer);
