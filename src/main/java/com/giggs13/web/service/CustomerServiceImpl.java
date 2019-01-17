@@ -35,4 +35,16 @@ public class CustomerServiceImpl
     public void save(Customer customer) {
         customerDAO.save(customer);
     }
+
+    @Override
+    @Transactional
+    public void delete(Integer id) {
+        customerDAO.delete(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Customer> searchByName(String searchName) {
+        return customerDAO.searchByName(searchName);
+    }
 }

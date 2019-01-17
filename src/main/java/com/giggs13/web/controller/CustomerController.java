@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
@@ -42,5 +44,20 @@ public class CustomerController {
     public String save(@ModelAttribute("customer") Customer customer) {
         customerService.save(customer);
         return "redirect:/customers";
+    }
+
+    @GetMapping("/delete")
+    public String save(@RequestParam(name = "id") Integer id) {
+        customerService.delete(id);
+        return "redirect:/customers";
+    }
+
+    @PostMapping("/search")
+    public String search(@RequestParam("searchName") String searchName,
+                         Model model) {
+        List<Customer> customers = customerService.searchByName(searchName);
+        model.addAttribute("customers", customers);
+
+        return "customers";
     }
 }
